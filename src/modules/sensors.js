@@ -52,7 +52,7 @@ async function activate() {
 
   window.addEventListener('devicemotion',      onMotion,      { passive: true });
   window.addEventListener('deviceorientation', onOrientation, { passive: true });
-  window.addEventListener('devicelocation', onLocation, { passive: true });
+  window.addEventListener('devicemotion', onLocation, { passive: true });
 
   sensorState.active = true;
   updateUI(true);
