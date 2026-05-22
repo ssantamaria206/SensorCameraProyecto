@@ -96,9 +96,20 @@ function onOrientation(event) {
 }
 
 function onLocation(event) {
-  sensorState.location.latitude = position.coords.latitude ?? 0;
-  sensorState.location.longitude  = position.coords.longitude  ?? 0;
 
+  function getLocation(sensorState) {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, error);
+    }
+    function success(position) {
+    sensorState.location.latitude = position.coords.latitude
+    sensorState.location.longitude = position.coords.longitude
+    }
+    function error() {
+    sensorState.location.latitude = "Error: Can't get latitude"
+    sensorState.location.longitude = "Error: Can't get longitude"
+    }
+  }
   renderLocation();
 }
 
