@@ -181,8 +181,8 @@ function renderOrientation() {
 function renderLocation() {
   const { latitude, longitude } = sensorState.location;
 
-  setText('oLatitude', `${Math.round(latitude)}`);
-  setText('oLongitude',  `${Math.round(longitude)}`);
+  setText('oLatitude', `${latitude}`);
+  setText('oLongitude',  `${longitude}`);
 
 }
 
