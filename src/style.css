@@ -792,7 +792,7 @@ body::before {
   gap: 10px;
 }
 
-.orient-item {
+.orient-item, .location-item{
   display: flex;
   justify-content: space-between;
   align-items: center;

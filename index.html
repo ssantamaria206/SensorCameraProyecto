@@ -215,6 +215,32 @@
             </div>
           </div>
 
+          <div class="sensor-card">
+            <div class="card-header">
+              <span class="card-icon">📍</span>
+              <div>
+                <h3>Location</h3>
+                <small>Posició en 2 eixos</small>
+              </div>
+              <div class="card-badge" id="locationBadge">OFF</div>
+            </div>
+
+            <div class="location-container">
+              <div class="location">
+              </div>
+              <div class="location-data">
+                <div class="location-item">
+                  <span class="location-label">North/South</span>
+                  <span class="location-val" id="oLatitude"></span>
+                </div>
+                <div class="location-item">
+                  <span class="location-label">East/Weast</span>
+                  <span class="location-val" id="oLongitude"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <button class="activate-btn" id="activateBtn">
             <span class="btn-icon">🚀</span> Activar Sensors
           </button>

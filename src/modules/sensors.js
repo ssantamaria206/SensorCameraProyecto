@@ -51,6 +51,7 @@ async function activate() {
 
   window.addEventListener('devicemotion',      onMotion,      { passive: true });
   window.addEventListener('deviceorientation', onOrientation, { passive: true });
+  window.addEventListener('devicelocation', onLocation, { passive: true });
 
   sensorState.active = true;
   updateUI(true);
@@ -60,6 +61,7 @@ async function activate() {
 function deactivate() {
   window.removeEventListener('devicemotion',      onMotion);
   window.removeEventListener('deviceorientation', onOrientation);
+  window.removeEventListener('devicelocation', onLocation);
 
   sensorState.active = false;
   updateUI(false);
@@ -90,6 +92,13 @@ function onOrientation(event) {
   sensorState.orientation.gamma = event.gamma ?? 0;
 
   renderOrientation();
+}
+
+function onLocation(event) {
+  sensorState.location.latitude = position.coords.latitude ?? 0;
+  sensorState.location.longitude  = position.coords.longitude  ?? 0;
+
+  renderLocation();
 }
 
 // -----------------------------------------------
@@ -165,6 +174,18 @@ function renderOrientation() {
   if (compass) compass.style.transform = `rotate(${-alpha}deg)`;
 }
 
+
+// -----------------------------------------------
+// RENDER: LOCALITZACIÓ
+// -----------------------------------------------
+function renderLocation() {
+  const { latitude, longitude } = sensorState.location;
+
+  setText('oLatitude', `${Math.round(latitude)}`);
+  setText('oLongitude',  `${Math.round(longitude)}`);
+
+}
+
 // -----------------------------------------------
 // DETECCIÓ DE SACSEJADA
 // -----------------------------------------------
@@ -210,7 +231,7 @@ function updateUI(active) {
   }
 
   // Badges
-  ['accelBadge', 'gyroBadge'].forEach(id => {
+  ['accelBadge', 'gyroBadge', 'locationBadge'].forEach(id => {
     const badge = document.getElementById(id);
     if (!badge) return;
     badge.textContent = active ? 'ON' : 'OFF';
