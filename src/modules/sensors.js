@@ -97,20 +97,18 @@ function onOrientation(event) {
 
 function onLocation(event) {
 
-  function getLocation(sensorState) {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(success, error);
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      sensorState.location.latitude = position.coords.latitude;
+      sensorState.location.longitude = position.coords.longitude;
+      renderLocation();
+    },
+    (error) => {
+      sensorState.location.latitude = "Error: Can't get latitude";
+      sensorState.location.longitude = "Error: Can't get longitude";
+      renderLocation();
     }
-    function success(position) {
-    sensorState.location.latitude = position.coords.latitude
-    sensorState.location.longitude = position.coords.longitude
-    }
-    function error() {
-    sensorState.location.latitude = "Error: Can't get latitude"
-    sensorState.location.longitude = "Error: Can't get longitude"
-    }
-  }
-  renderLocation();
+  );
 }
 
 // -----------------------------------------------
