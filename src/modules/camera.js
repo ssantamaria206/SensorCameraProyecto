@@ -15,6 +15,7 @@ const camState = {
 
   // Referència als valors del sensor (actualitzat externament)
   accel: { x: 0, y: 0, z: 0 },
+  location: { latitude, longitude}
 };
 
 // -----------------------------------------------
@@ -48,6 +49,10 @@ export function updateCameraAccel(x, y, z) {
   updateHUD(x, y);
 }
 
+export function updateCameraLocation( latitude, longitude)  {
+  camState.location = { latitude, longitude }
+  updateHUD(latitude, longitude)
+}
 // -----------------------------------------------
 // ARRANCAR CÀMERA
 // -----------------------------------------------

@@ -27,6 +27,8 @@ export function initGallery() {
     ?.addEventListener('click', closeModal);
   document.getElementById('downloadBtn')
     ?.addEventListener('click', downloadPhoto);
+  document.getElementById('mapsBtn')
+    ?.addEventListener('click', linkToMaps);
 }
 
 // -----------------------------------------------
@@ -121,6 +123,10 @@ function downloadPhoto() {
   a.download   = `sensorCam_${currentPhoto.id}.jpg`;
   a.click();
   showToast('⬇️ Foto descarregada!', 'success');
+}
+
+function linkToMaps() {
+  pass
 }
 
 // -----------------------------------------------
