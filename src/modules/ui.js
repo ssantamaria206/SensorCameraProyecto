@@ -51,7 +51,7 @@ export function initTabs(onTabChange) {
   const initTab  = params.get('tab') ?? 'camera';
   switchTab(initTab, tabBtns, tabContents);
 
-  tabBtns.forEach(btn => {
+  tabBtns.forEach(btn => { 
     btn.addEventListener('click', () => {
       const target = btn.dataset.tab;
       switchTab(target, tabBtns, tabContents);
