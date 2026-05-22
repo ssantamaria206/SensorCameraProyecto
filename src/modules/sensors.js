@@ -62,7 +62,7 @@ async function activate() {
 function deactivate() {
   window.removeEventListener('devicemotion',      onMotion);
   window.removeEventListener('deviceorientation', onOrientation);
-  window.removeEventListener('devicelocation', onLocation);
+  window.removeEventListener('devicemotion', onLocation);
 
   sensorState.active = false;
   updateUI(false);
