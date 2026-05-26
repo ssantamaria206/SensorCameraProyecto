@@ -624,7 +624,7 @@ body::before {
 .y-bar { background: linear-gradient(90deg, #10b981, #06b6d4); }
 .z-bar { background: linear-gradient(90deg, #7c3aed, #a78bfa); }
 
-.axis-value {
+.axis-value{
   font-family: 'Orbitron', sans-serif;
   font-size: 0.7rem;
   color: var(--text-secondary);
@@ -710,7 +710,7 @@ body::before {
   transition: stroke-dashoffset 0.2s ease;
 }
 
-.intensity-value {
+.intensity-value  {
   position: absolute;
   inset: 0;
   display: flex;
@@ -792,7 +792,7 @@ body::before {
   gap: 10px;
 }
 
-.orient-item, .location-item{
+.orient-item{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -809,6 +809,29 @@ body::before {
   font-size: 0.8rem;
   color: var(--accent-secondary);
   font-weight: 700;
+}
+
+/* Location */
+
+.location-label { font-size: 0.72rem; color: var(--text-muted); }
+
+.location-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.03);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+ .location-value {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  width: 48px;
+  text-align: right;
+  margin-right: 25px;
 }
 
 /* Activate Button */
