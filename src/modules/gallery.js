@@ -126,7 +126,8 @@ function downloadPhoto() {
 }
 
 function linkToMaps() {
-  pass
+  const { latitude, longitude } = currentPhoto.location;
+  window.open( `https://www.google.com/maps?q=${latitude},${longitude}`, '_blank')
 }
 
 // -----------------------------------------------

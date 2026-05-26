@@ -15,7 +15,7 @@ const camState = {
 
   // Referència als valors del sensor (actualitzat externament)
   accel: { x: 0, y: 0, z: 0 },
-  location: { latitude, longitude}
+  location: { latitude: 0, longitude: 0}
 };
 
 // -----------------------------------------------
@@ -121,6 +121,7 @@ async function handleCapture() {
       effect:    camState.effect,
       timestamp: new Date().toLocaleString('ca-ES'),
       accel:     { ...camState.accel },
+      location: { ...camState.location }
     },
   }));
 

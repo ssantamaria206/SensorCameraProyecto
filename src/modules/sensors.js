@@ -4,7 +4,7 @@
 
 import { showToast }        from './ui.js';
 import { updateStatusBadge } from './ui.js';
-import { updateCameraAccel, updateCameraAccel } from './camera.js';
+import { updateCameraAccel, updateCameraLocation } from './camera.js';
 
 const sensorState = {
   active:         false,
@@ -101,7 +101,7 @@ function onLocation(event) {
     (position) => {
       sensorState.location.latitude = position.coords.latitude;
       sensorState.location.longitude = position.coords.longitude;
-      updateCameraAccel(sensorState.location.latitude, sensorState.location.longitude);
+      updateCameraLocation(sensorState.location.latitude, sensorState.location.longitude);
       renderLocation();
     },
     (error) => {
